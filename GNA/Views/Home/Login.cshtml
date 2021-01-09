@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="single-product-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+
+            <form action="/seConnecter" method="post">
+                <div>
+                    Login Html.TextBoxFor(s => s.user_login)
+                </div>
+                <div>
+                    Mot de passe Html.TextBoxFor(s=>s.mdp, new { Type = "password" })
+                </div>
+
+                <input type="submit" name="name" value="Se connecter" />
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
