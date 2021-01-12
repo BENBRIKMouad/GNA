@@ -127,6 +127,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SubscriptionController.cs" />
     <Compile Include="Controllers\TransportCompanyController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -151,8 +152,13 @@
     <Compile Include="Migrations\202101121025578_TransportCompany.Designer.cs">
       <DependentUpon>202101121025578_TransportCompany.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101121510305_subscription.cs" />
+    <Compile Include="Migrations\202101121510305_subscription.Designer.cs">
+      <DependentUpon>202101121510305_subscription.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\Subscription.cs" />
     <Compile Include="Models\TransportCompany.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -298,10 +304,14 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Home\Signin.cshtml" />
     <Content Include="Views\Clients\Login.cshtml" />
     <Content Include="Views\TransportCompany\Login.cshtml" />
     <Content Include="Views\TransportCompany\Signin.cshtml" />
+    <Content Include="Views\Subscription\Create.cshtml" />
+    <Content Include="Views\Subscription\Delete.cshtml" />
+    <Content Include="Views\Subscription\Details.cshtml" />
+    <Content Include="Views\Subscription\Edit.cshtml" />
+    <Content Include="Views\Subscription\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -332,6 +342,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101121025578_TransportCompany.resx">
       <DependentUpon>202101121025578_TransportCompany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101121510305_subscription.resx">
+      <DependentUpon>202101121510305_subscription.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

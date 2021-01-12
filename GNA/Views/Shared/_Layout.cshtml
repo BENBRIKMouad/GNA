@@ -29,10 +29,10 @@
                             @Html.ActionLink("Login", "Login", "Clients", null, new {@class = "nav-link"})
                         </li>
                         <li class="nav-item" @(Session["user"] != null ? "hidden" : "")>
-                            @Html.ActionLink("Signin", "Signin", "Clients", null, new {@class = "nav-link"})
+                            @Html.ActionLink("Sign up", "Signin", "Clients", null, new {@class = "nav-link"})
                         </li>
                         <li class="nav-item" @(Session["user"] == null ? "hidden" : "")>
-                            @Session["user"]?
+                            @Session["user"]
                         </li>
                     </ul>
                 </span>

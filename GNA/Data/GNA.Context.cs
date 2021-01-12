@@ -12,6 +12,7 @@ namespace Gna.Data
     {
         public virtual DbSet<Client> Clients { get; set; }
         public virtual DbSet<TransportCompany> TransportCompanies { get; set; }
+        public virtual DbSet<Subscription> Subscriptions { get; set; }
     }
 
 }
