@@ -11,5 +11,7 @@ namespace Gna.Data
     public class Context : DbContext
     {
         public virtual DbSet<Client> Clients { get; set; }
+        public virtual DbSet<TransportCompany> TransportCompanies { get; set; }
     }
+
 }

@@ -127,7 +127,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\pController.cs" />
+    <Compile Include="Controllers\TransportCompanyController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -147,8 +147,13 @@
     <Compile Include="Migrations\202101082052086_REQUIRED_client_name_login_password.Designer.cs">
       <DependentUpon>202101082052086_REQUIRED_client_name_login_password.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101121025578_TransportCompany.cs" />
+    <Compile Include="Migrations\202101121025578_TransportCompany.Designer.cs">
+      <DependentUpon>202101121025578_TransportCompany.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\TransportCompany.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -288,16 +293,6 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\C\Create.cshtml" />
-    <Content Include="Views\C\Delete.cshtml" />
-    <Content Include="Views\C\Details.cshtml" />
-    <Content Include="Views\C\Edit.cshtml" />
-    <Content Include="Views\C\Index.cshtml" />
-    <Content Include="Views\p\Create.cshtml" />
-    <Content Include="Views\p\Delete.cshtml" />
-    <Content Include="Views\p\Details.cshtml" />
-    <Content Include="Views\p\Edit.cshtml" />
-    <Content Include="Views\p\Index.cshtml" />
     <Content Include="Views\Clients\Signin.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
@@ -305,6 +300,8 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Signin.cshtml" />
     <Content Include="Views\Clients\Login.cshtml" />
+    <Content Include="Views\TransportCompany\Login.cshtml" />
+    <Content Include="Views\TransportCompany\Signin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -332,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101082052086_REQUIRED_client_name_login_password.resx">
       <DependentUpon>202101082052086_REQUIRED_client_name_login_password.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101121025578_TransportCompany.resx">
+      <DependentUpon>202101121025578_TransportCompany.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

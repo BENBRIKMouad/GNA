@@ -127,3 +127,4 @@ C:\Users\benbrik\Documents\GitHub\GNA\GNA\obj\Debug\GNA.csproj.GenerateResource.
 C:\Users\benbrik\Documents\GitHub\GNA\GNA\obj\Debug\GNA.Migrations.add_client1.resources
 C:\Users\benbrik\Documents\GitHub\GNA\GNA\obj\Debug\GNA.Migrations.nullable_LastSubscription.resources
 C:\Users\benbrik\Documents\GitHub\GNA\GNA\obj\Debug\GNA.Migrations.REQUIRED_client_name_login_password.resources
+C:\Users\benbrik\Documents\GitHub\GNA\GNA\obj\Debug\GNA.Migrations.TransportCompany.resources

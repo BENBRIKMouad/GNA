@@ -15,6 +15,7 @@ namespace GNA.Controllers
         // GET: Clients
         public ActionResult Index()
         {
+            //add client page
             return View();
         }
         public ActionResult Login()
@@ -30,11 +31,11 @@ namespace GNA.Controllers
 
             if (trouve == null)
             {
+                ModelState.AddModelError("", "password or login are incorrect");
+
                 return View(client);
             }
-
             Session["user"] = trouve;
-            TempData["name"] = trouve.Name;
             return RedirectToAction("Index","Home");
         }
         public ActionResult Signin()
@@ -60,6 +61,14 @@ namespace GNA.Controllers
             }
 
             return View(client);
+        }
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }
