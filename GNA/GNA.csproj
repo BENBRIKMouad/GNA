@@ -334,6 +334,7 @@
     <Content Include="Views\Paths\Edit.cshtml" />
     <Content Include="Views\Paths\Index.cshtml" />
     <Content Include="Views\Clients\Succes.cshtml" />
+    <Content Include="Views\Clients\Fail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
