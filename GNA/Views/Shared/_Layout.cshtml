@@ -8,28 +8,33 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizer")
     <link rel="Shortcut Icon" href="~/favicon.ico" type="image/x-icon" />
-
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("My BUS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav mr-auto">
                     <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })</li>
-                    <li class="nav-item">@Html.ActionLink("About", "About", "Home", null, new { @class = "nav-link" })</li>
-                    <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "nav-link" })</li>
+                    <li class="nav-item" @(Session["user"] != null ? "hidden" : "")>@Html.ActionLink("About", "About", "Home", null, new { @class = "nav-link" })</li>
+                    <li class="nav-item" @(Session["user"] != null ? "hidden" : "")>@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "nav-link" })</li>
+                    <li class="nav-item" @(Session["user"] != null ? "" : "hidden")>
+                        @Html.ActionLink("Chercher une Navette ", "Index", "Clients", null, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item" @(Session["user"] != null ? "" : "hidden")>
+                        @Html.ActionLink("Liste des Navette ", "ListPath", "Clients", null, new { @class = "nav-link" })
+                    </li>
                 </ul>
                 <span class="navbar-text">
                     <ul class="nav navbar-nav mr-auto">
                         <li class="nav-item" @(Session["user"] != null ? "hidden" : "")>
-                            @Html.ActionLink("Login", "Login", "Clients", null, new {@class = "nav-link"})
+                            @Html.ActionLink("Login", "Login", "Clients", null, new { @class = "nav-link" })
                         </li>
                         <li class="nav-item" @(Session["user"] != null ? "hidden" : "")>
-                            @Html.ActionLink("Sign up", "Signin", "Clients", null, new {@class = "nav-link"})
+                            @Html.ActionLink("Sign up", "Signin", "Clients", null, new { @class = "nav-link" })
                         </li>
                         <li class="nav-item" @(Session["user"] == null ? "hidden" : "")>
                             @Session["user"]
@@ -42,8 +47,8 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        <footer class="text-center">
+            <p>&copy; @DateTime.Now.Year - Projet fait et Réaliser par BENBRIK Mouad et KENSI Badr</p>
         </footer>
     </div>
 

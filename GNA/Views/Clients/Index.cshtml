@@ -4,48 +4,46 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>find path</h2>
 
-@using (Html.BeginForm("ListPath","Clients"))
-{
-    @Html.AntiForgeryToken()
-
-<div class="form-horizontal">
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.FromCity, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.FromCity, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.FromCity, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.ToCity, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.ToCity, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.ToCity, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="col-md-2" for="from">From</label>
-        <div class="col-md-10">
-            <input type="text" id="from" class="form-control" name="from" />
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="col-md-2" for="to">to</label>
-        <div class="col-md-10">
-            <input type="text" id="to" class="form-control" name="to" />
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-10">
-            <input type="submit" value="find" class="btn btn-default" />
+<div className="py-2 bg-primary text-white">
+    <div className="container">
+        <div className="row">
+            <div className="col-md-6">
+                <div class="display-2 text-center">
+                    Trouvé les Ligne
+                </div>
+            </div>
         </div>
     </div>
 </div>
+<hr />
+@* A center *@
+@using (Html.BeginForm("ListPath", "Clients"))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.FromCity, "Ville de départ", htmlAttributes: new { @class = "control-label " })
+        @Html.EditorFor(model => model.FromCity, new { htmlAttributes = new { @class = "form-control form-control-lg" } })
+        @Html.ValidationMessageFor(model => model.FromCity, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ToCity, "Ville d'arivvé", htmlAttributes: new { @class = "" })
+        @Html.EditorFor(model => model.ToCity, new { htmlAttributes = new { @class = "form-control form-control-lg" } })
+        @Html.ValidationMessageFor(model => model.ToCity, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label for="from">Heur de départ</label>
+
+        <input type="number" id="from" class="form-control" min="0" max="23" name="from" />
+    </div>
+    <div class="form-group">
+        <label for="from">Heur de D'arrivé</label>
+        <input type="number" id="to" class="form-control" min="0" max="23" name="from" />
+    </div>
+
+    <input type="submit" value="Chercher" class="btn btn-outline-dark my-5 ju" />
+
 }
-
-

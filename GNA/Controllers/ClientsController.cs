@@ -19,10 +19,12 @@ namespace GNA.Controllers
         {
             return View();
         }
+
         public ActionResult Login()
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login([Bind(Include = "Login,Password")] Client client)
@@ -32,18 +34,20 @@ namespace GNA.Controllers
 
             if (trouve == null)
             {
-                ModelState.AddModelError("", "password or login are incorrect");
+                ModelState.AddModelError("", "Nom d'utilisateur ou Mot de pass incorrect");
                 return View(client);
             }
             Session["user"] = trouve;
             Session["userId"] = trouve.Id;
 
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
         }
+
         public ActionResult Signin()
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Signin(Client client)
@@ -59,21 +63,29 @@ namespace GNA.Controllers
                 }
                 db.Clients.Add(client);
                 db.SaveChanges();
-                return RedirectToAction("Index","Home");
+                return RedirectToAction("Index", "Home");
             }
 
             return View(client);
         }
-        public ActionResult ListPath([Bind(Include = "FromCity,ToCity")] Path path,int? from,int? to)
+
+        public ActionResult ListPath([Bind(Include = "FromCity,ToCity")] Path path, int? from, int? to)
         {
+            if (path.FromCity == null)
+            {
+                var route = db.Paths.Include(p => p.Company);
+                return View(route.ToList());
+            }
             var paths = db.Paths.Include(p => p.Company)
-                .Where(p => p.FromCity == path.FromCity && p.ToCity==path.ToCity);
+                .Where(p => p.FromCity == path.FromCity && p.ToCity == path.ToCity);
             if (from != null)
                 paths = paths.Where(p => p.DepartureTime.Hour > from);
-            if(to!=null)
+            if (to != null)
                 paths = paths.Where(p => p.DepartureTime.Hour < to);
+
             return View(paths.ToList());
         }
+
         public ActionResult Subscribe(int pathId)
         {
             int id = ((Client)Session["user"])?.Id ?? 0;
@@ -86,10 +98,9 @@ namespace GNA.Controllers
             subscription.PathId = pathId;
             subscription.Type = 0;
             subscription.Price = path.Price;
-            subscription.EndTime=DateTime.Now.AddDays(30);
+            subscription.EndTime = DateTime.Now.AddDays(30);
             db.Subscriptions.Add(subscription);
             db.SaveChanges();
-
 
             return RedirectToAction("Succes");
         }
@@ -98,6 +109,7 @@ namespace GNA.Controllers
         {
             return View();
         }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

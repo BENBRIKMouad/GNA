@@ -4,63 +4,86 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>ListPath</h2>
+<div  className="py-2 bg-primary text-white">
+    <div className="container">
+        <div className="row">
+            <div className="col-md-6">
+                <div class="display-2 text-center" >
+                    Liste des itinéraire disponible
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr />
+<div  className="py-4 mb-4 bg-light">
+    <div className="container">
+        <div className="row">
+            <div className="col-md-3">
+                @Html.ActionLink(" + Demande d'ajout ", "AddPath", "", new { @class = "btn btn-light btn-block  " })
+            </div>
+        </div>
+    </div>
+</div>
 
 
-<p>
-    @Html.ActionLink("Add New Path", "AddPath")
-</p>
-<table class="table">
-    <tr>
-
-        <th>
-            @Html.DisplayNameFor(model => model.FromCity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ToCity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DepartureTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ArivalTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Capacity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+<table class="table  table-striped my-5">
+    <thead class="table-dark">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FromCity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ToCity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DepartureTime.Hour) :
-                @Html.DisplayFor(modelItem => item.DepartureTime.Minute)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ArivalTime.Hour)
-                @Html.DisplayFor(modelItem => item.ArivalTime.Minute)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Capacity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.ActionLink("Subscribe", "Subscribe", new { pathId=item.Id })
-            </td>
-        </tr>
-    }
 
+            <th>
+
+                Ville de Départ
+            </th>
+            <th>
+
+                Ville d'arrivé
+            </th>
+            <th>
+
+                Heur de Départ
+            </th>
+            <th>
+                Heur d'arrivé
+            </th>
+            <th>
+                Capacité
+            </th>
+            <th>
+                Prix
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FromCity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ToCity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DepartureTime.Hour) :
+                    @Html.DisplayFor(modelItem => item.DepartureTime.Minute)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ArivalTime.Hour):
+                    @Html.DisplayFor(modelItem => item.ArivalTime.Minute)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Capacity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.ActionLink("S'abboner", "Subscribe", new { pathId = item.Id }, new { @class = "btn btn-outline-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
