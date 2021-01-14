@@ -1,0 +1,44 @@
+﻿@model IEnumerable<GNA.Models.Subscription>
+@{
+    ViewBag.Title = "ListSubscribtion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ListSubscribtion</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Path.FromCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Path.ToCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndTime)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Path.FromCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Path.ToCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndTime)
+            </td>
+        </tr>
+    }
+
+</table>

@@ -42,6 +42,12 @@ namespace GNA.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+        public ActionResult Logout()
+        {
+            Session["user"] = null;
+            Session["userId"] = null;
+            return RedirectToAction("Index", "Home");
+        }
 
         public ActionResult Signin()
         {
@@ -93,23 +99,41 @@ namespace GNA.Controllers
             if (!exist)
                 return RedirectToAction("Login");
             Path path = db.Paths.Find(pathId);
-            Subscription subscription = new Subscription();
-            subscription.ClientId = id;
-            subscription.PathId = pathId;
-            subscription.Type = 0;
-            subscription.Price = path.Price;
-            subscription.EndTime = DateTime.Now.AddDays(30);
-            db.Subscriptions.Add(subscription);
-            db.SaveChanges();
-
-            return RedirectToAction("Succes");
+            DateTime d = new DateTime();
+            d = DateTime.Now.AddDays(5);
+            bool alreaduSubscribed = db.Subscriptions.Where(s => s.ClientId == id).Any(s => s.PathId == pathId);
+            if (!alreaduSubscribed)
+            {
+                Subscription subscription = new Subscription();
+                subscription.ClientId = id;
+                subscription.PathId = pathId;
+                subscription.Type = 0;
+                subscription.Price = path.Price;
+                subscription.EndTime = DateTime.Now.AddDays(30);
+                db.Subscriptions.Add(subscription);
+                db.SaveChanges();
+                return RedirectToAction("Succes");
+            }
+            return RedirectToAction("Fail");
+        }
+        public ActionResult ListSubscribtion()
+        {
+            int id = ((Client)Session["user"])?.Id ?? 0;
+            bool exist = db.Clients.Any(c => c.Id == id);
+            if (!exist)
+                return RedirectToAction("Login");
+            var listSubscribtion = db.Subscriptions.Where(s => s.ClientId == id).Include(s => s.Path);
+            return View(listSubscribtion.ToList());
         }
 
         public ActionResult Succes()
         {
             return View();
         }
-
+        public ActionResult Fail()
+        {
+            return View();
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -41,6 +41,9 @@
                         </li>
                     </ul>
                 </span>
+                <span class="navbar-text" @(Session["user"] == null ? "hidden" : "")>
+                    @Html.ActionLink("log out", "Logout", "Clients", null, new { @class = "nav-link" })
+                </span>
             </div>
         </div>
     </nav>
