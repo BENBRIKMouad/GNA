@@ -164,6 +164,14 @@
     <Compile Include="Migrations\202101132227355_compny_nulls.Designer.cs">
       <DependentUpon>202101132227355_compny_nulls.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101141357574_sub_add_FK_to_transportCompany.cs" />
+    <Compile Include="Migrations\202101141357574_sub_add_FK_to_transportCompany.Designer.cs">
+      <DependentUpon>202101141357574_sub_add_FK_to_transportCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101141607131_sub_add_FK_to_path.cs" />
+    <Compile Include="Migrations\202101141607131_sub_add_FK_to_path.Designer.cs">
+      <DependentUpon>202101141607131_sub_add_FK_to_path.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Path.cs" />
@@ -316,12 +324,16 @@
     <Content Include="Views\Clients\Login.cshtml" />
     <Content Include="Views\TransportCompany\Login.cshtml" />
     <Content Include="Views\TransportCompany\Signin.cshtml" />
+    <Content Include="Views\TransportCompany\AddPath.cshtml" />
+    <Content Include="Views\TransportCompany\ListPath.cshtml" />
+    <Content Include="Views\Clients\ListPath.cshtml" />
+    <Content Include="Views\Clients\Index.cshtml" />
     <Content Include="Views\Paths\Create.cshtml" />
     <Content Include="Views\Paths\Delete.cshtml" />
     <Content Include="Views\Paths\Details.cshtml" />
     <Content Include="Views\Paths\Edit.cshtml" />
     <Content Include="Views\Paths\Index.cshtml" />
-    <Content Include="Views\TransportCompany\AddPath.cshtml" />
+    <Content Include="Views\Clients\Succes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -361,6 +373,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101132227355_compny_nulls.resx">
       <DependentUpon>202101132227355_compny_nulls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101141357574_sub_add_FK_to_transportCompany.resx">
+      <DependentUpon>202101141357574_sub_add_FK_to_transportCompany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101141607131_sub_add_FK_to_path.resx">
+      <DependentUpon>202101141607131_sub_add_FK_to_path.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

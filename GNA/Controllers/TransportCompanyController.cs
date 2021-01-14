@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -96,15 +97,18 @@ namespace GNA.Controllers
             return View(path);
             
         }
-        /*
+        
         public ActionResult ListPath()
         {
-            if (Session["user"] == null)
+            int id = check()?((TransportCompany)Session["user"]).Id:0;
+            bool exist = db.TransportCompanies.Any(c => c.Id == id);
+            if (!exist)
+            {
                 return RedirectToAction("Index", "Home");
-            if (Session["user"].GetType() != typeof(TransportCompany))
-                return RedirectToAction("Index", "Home");
-            var paths = db.Paths.Select(p => p.CompanyId);
-        }*/
+            }
+            var paths = db.Paths.Include(p => p.Company).Where(p=>p.CompanyId==id);
+            return View(paths.ToList());
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

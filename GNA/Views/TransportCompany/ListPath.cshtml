@@ -1,0 +1,64 @@
+﻿@model IEnumerable<GNA.Models.Path>
+@{
+    ViewBag.Title = "ListPath";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ListPath</h2>
+
+
+<p>
+    @Html.ActionLink("Add New Path", "AddPath")
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.FromCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartureTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArivalTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Capacity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FromCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ToCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartureTime.Hour) :
+                @Html.DisplayFor(modelItem => item.DepartureTime.Minute) 
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArivalTime.Hour)
+                @Html.DisplayFor(modelItem => item.ArivalTime.Minute)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Capacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+
+        </tr>
+    }
+
+</table>

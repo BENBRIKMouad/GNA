@@ -113,7 +113,6 @@ C:\Users\benbrik\Documents\GitHub\GNA\GNA\bin\System.Web.WebPages.xml
 C:\Users\benbrik\Documents\GitHub\GNA\GNA\bin\System.Web.WebPages.Deployment.xml
 C:\Users\benbrik\Documents\GitHub\GNA\GNA\bin\System.Web.WebPages.Razor.xml
 C:\Users\benbrik\Documents\GitHub\GNA\GNA\bin\Antlr3.Runtime.pdb
-C:\Users\benbrik\Documents\GitHub\GNA\GNA\obj\Debug\GNA.csprojAssemblyReference.cache
 C:\Users\benbrik\Documents\GitHub\GNA\GNA\obj\Debug\GNA.csproj.CoreCompileInputs.cache
 C:\Users\benbrik\Documents\GitHub\GNA\GNA\obj\Debug\GNA.csproj.CopyComplete
 C:\Users\benbrik\Documents\GitHub\GNA\GNA\obj\Debug\GNA.dll
@@ -131,3 +130,6 @@ C:\Users\benbrik\Documents\GitHub\GNA\GNA\obj\Debug\GNA.Migrations.TransportComp
 C:\Users\benbrik\Documents\GitHub\GNA\GNA\obj\Debug\GNA.Migrations.subscription.resources
 C:\Users\benbrik\Documents\GitHub\GNA\GNA\obj\Debug\GNA.Migrations.path_modCleint_modSubs.resources
 C:\Users\benbrik\Documents\GitHub\GNA\GNA\obj\Debug\GNA.Migrations.compny_nulls.resources
+C:\Users\benbrik\Documents\GitHub\GNA\GNA\obj\Debug\GNA.csprojAssemblyReference.cache
+C:\Users\benbrik\Documents\GitHub\GNA\GNA\obj\Debug\GNA.Migrations.sub_add_FK_to_transportCompany.resources
+C:\Users\benbrik\Documents\GitHub\GNA\GNA\obj\Debug\GNA.Migrations.sub_add_FK_to_path.resources
