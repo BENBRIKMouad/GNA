@@ -12,13 +12,10 @@ namespace GNA.Models
 
         public int Id { get; set; }
         [Required]
-        public int Type { get; set; }//Type 0:monthly, Type 1:quarterly, Type 2:annual,
-        [Required]
-        public double Price { get; set; }
-
-        public int CompanyId { get; set; }
-        public TransportCompany Company { get; set; }
-
-
+        public int Type { get; set; }//Type 0:monthly, Type 1:quarterly, Type 2:annual
+        public int Price { get; set; }
+        public DateTime EndTime { get; set; }
+        public int ClientId { get; set; }
+        public Client Client { get; set; }
     }
 }

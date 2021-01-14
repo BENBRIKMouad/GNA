@@ -8,6 +8,10 @@ namespace GNA.Models
 {
     public class Client
     {
+        public Client()
+        {
+            this.Subscriptions = new HashSet<Subscription>();
+        }
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
@@ -16,8 +20,7 @@ namespace GNA.Models
         [Required]
         public string Password { get; set; }
         public bool IsSubscribed { get; set; }
-        public DateTime?  LastSubscription { get; set; }
-
+        public virtual ICollection<Subscription> Subscriptions { get; set; }
         public override string ToString()
         {
             return Name;

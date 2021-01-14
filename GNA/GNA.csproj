@@ -127,7 +127,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\SubscriptionController.cs" />
+    <Compile Include="Controllers\PathsController.cs" />
     <Compile Include="Controllers\TransportCompanyController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -156,8 +156,17 @@
     <Compile Include="Migrations\202101121510305_subscription.Designer.cs">
       <DependentUpon>202101121510305_subscription.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101132207216_path_modCleint_modSubs.cs" />
+    <Compile Include="Migrations\202101132207216_path_modCleint_modSubs.Designer.cs">
+      <DependentUpon>202101132207216_path_modCleint_modSubs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101132227355_compny_nulls.cs" />
+    <Compile Include="Migrations\202101132227355_compny_nulls.Designer.cs">
+      <DependentUpon>202101132227355_compny_nulls.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\Path.cs" />
     <Compile Include="Models\Subscription.cs" />
     <Compile Include="Models\TransportCompany.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -307,11 +316,12 @@
     <Content Include="Views\Clients\Login.cshtml" />
     <Content Include="Views\TransportCompany\Login.cshtml" />
     <Content Include="Views\TransportCompany\Signin.cshtml" />
-    <Content Include="Views\Subscription\Create.cshtml" />
-    <Content Include="Views\Subscription\Delete.cshtml" />
-    <Content Include="Views\Subscription\Details.cshtml" />
-    <Content Include="Views\Subscription\Edit.cshtml" />
-    <Content Include="Views\Subscription\Index.cshtml" />
+    <Content Include="Views\Paths\Create.cshtml" />
+    <Content Include="Views\Paths\Delete.cshtml" />
+    <Content Include="Views\Paths\Details.cshtml" />
+    <Content Include="Views\Paths\Edit.cshtml" />
+    <Content Include="Views\Paths\Index.cshtml" />
+    <Content Include="Views\TransportCompany\AddPath.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -345,6 +355,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101121510305_subscription.resx">
       <DependentUpon>202101121510305_subscription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101132207216_path_modCleint_modSubs.resx">
+      <DependentUpon>202101132207216_path_modCleint_modSubs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101132227355_compny_nulls.resx">
+      <DependentUpon>202101132227355_compny_nulls.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -32,10 +32,11 @@ namespace GNA.Controllers
             if (trouve == null)
             {
                 ModelState.AddModelError("", "password or login are incorrect");
-
                 return View(client);
             }
             Session["user"] = trouve;
+            Session["userId"] = trouve.Id;
+
             return RedirectToAction("Index","Home");
         }
         public ActionResult Signin()

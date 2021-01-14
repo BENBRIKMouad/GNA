@@ -11,7 +11,17 @@ namespace GNA.Controllers
     public class TransportCompanyController : Controller
     {
         private Context db = new Context();
+        
         // GET: TransportCompany
+
+        public bool check()
+        {
+            if (Session["user"] == null)
+                return false;
+            if (Session["user"].GetType() != typeof(TransportCompany))
+                return false;
+            return true;
+        }
         public ActionResult Index()
         {
             return View();
@@ -58,6 +68,43 @@ namespace GNA.Controllers
             Session["user"] = trouve;
             return RedirectToAction("Index", "Home");
         }
+        
+
+        public ActionResult AddPath()
+        {
+            
+            return check() ? View() : (ActionResult) RedirectToAction("Index", "Home") ;
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddPath([Bind(Include = "FromCity,ToCity,DepartureTime,ArivalTime,Capacity,Price")]Path path)
+        {
+
+            int id = ((TransportCompany)Session["user"]).Id;
+            bool exist = db.TransportCompanies.Any(c => c.Id == id);
+            if (!check() && !exist)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            path.CompanyId = id;
+            if (ModelState.IsValid)
+            {
+                db.Paths.Add(path);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(path);
+            
+        }
+        /*
+        public ActionResult ListPath()
+        {
+            if (Session["user"] == null)
+                return RedirectToAction("Index", "Home");
+            if (Session["user"].GetType() != typeof(TransportCompany))
+                return RedirectToAction("Index", "Home");
+            var paths = db.Paths.Select(p => p.CompanyId);
+        }*/
         protected override void Dispose(bool disposing)
         {
             if (disposing)

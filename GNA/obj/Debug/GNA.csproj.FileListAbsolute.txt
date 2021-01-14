@@ -129,3 +129,5 @@ C:\Users\benbrik\Documents\GitHub\GNA\GNA\obj\Debug\GNA.Migrations.nullable_Last
 C:\Users\benbrik\Documents\GitHub\GNA\GNA\obj\Debug\GNA.Migrations.REQUIRED_client_name_login_password.resources
 C:\Users\benbrik\Documents\GitHub\GNA\GNA\obj\Debug\GNA.Migrations.TransportCompany.resources
 C:\Users\benbrik\Documents\GitHub\GNA\GNA\obj\Debug\GNA.Migrations.subscription.resources
+C:\Users\benbrik\Documents\GitHub\GNA\GNA\obj\Debug\GNA.Migrations.path_modCleint_modSubs.resources
+C:\Users\benbrik\Documents\GitHub\GNA\GNA\obj\Debug\GNA.Migrations.compny_nulls.resources
