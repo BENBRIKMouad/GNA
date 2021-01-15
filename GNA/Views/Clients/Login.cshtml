@@ -8,7 +8,7 @@
         <div className="row">
             <div className="col-md-6">
                 <div class="display-2 text-center">
-                   Connexion
+                    Connexion
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
                 @Html.LabelFor(model => model.Password, "Mot de passe", htmlAttributes: new { @class = "control-label col-md-10" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @Type = "password" } })
-                    @Html.ValidationMessageFor(model => model.Password,"" , new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                 </div>
             </div>
             <div class="form-group">
@@ -42,11 +42,9 @@
                     <input type="submit" value="Se Connecter " class="btn btn-success" />
                     <hr />
                     <small>Reserver pour les société</small>
-                    @Html.ActionLink("login as a TransportCompany", "Login", "TransportCompany", null, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Vous etes une Société ? ", "Login", "TransportCompany", null, new { @class = "btn btn-primary" })
                 </div>
             </div>
         </div>
     }
 </div>
-
-

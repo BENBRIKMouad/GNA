@@ -4,35 +4,38 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>ListPath</h2>
+<h2 class="text-center display-4">Liste des Route Crée</h2>
 
+@Html.ActionLink("Ajouter nouvelles Itinéraire", "AddPath", "", new { @class = "btn btn-outline-dark my-4 btn-block" })
 
-<p>
-    @Html.ActionLink("Add New Path", "AddPath")
-</p>
 <table class="table">
-    <tr>
+    <thead class="table-dark">
+        <tr>
 
-        <th>
-            @Html.DisplayNameFor(model => model.FromCity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ToCity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DepartureTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ArivalTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Capacity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th></th>
-    </tr>
+            <th>
+
+                Ville de Départ
+            </th>
+            <th>
+
+                Ville d'arrivé
+            </th>
+            <th>
+
+                Heur de Départ
+            </th>
+            <th>
+                Heur d'arrivé
+            </th>
+            <th>
+                Capacité
+            </th>
+            <th>
+                Prix
+            </th>
+            <th></th>
+        </tr>
+    </thead>
 
     @foreach (var item in Model)
     {
@@ -45,20 +48,27 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DepartureTime.Hour) :
-                @Html.DisplayFor(modelItem => item.DepartureTime.Minute) 
+                @if (item.DepartureTime.Minute < 10)
+                {
+                    <span>
+                        0 @Html.DisplayFor(modelItem => item.DepartureTime.Minute)
+                    </span>
+                }
+                else
+                {
+                    @Html.DisplayFor(modelItem => item.DepartureTime.Minute)
+                }
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ArivalTime.Hour)
+                @Html.DisplayFor(modelItem => item.ArivalTime.Hour):
                 @Html.DisplayFor(modelItem => item.ArivalTime.Minute)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Capacity)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Price)
+                @Html.DisplayFor(modelItem => item.Price) DH
             </td>
-
         </tr>
     }
-
 </table>

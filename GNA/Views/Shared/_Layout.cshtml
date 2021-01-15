@@ -21,28 +21,50 @@
                     <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })</li>
                     <li class="nav-item" @(Session["user"] != null ? "hidden" : "")>@Html.ActionLink("About", "About", "Home", null, new { @class = "nav-link" })</li>
                     <li class="nav-item" @(Session["user"] != null ? "hidden" : "")>@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "nav-link" })</li>
-                    <li class="nav-item" @(Session["user"] != null ? "" : "hidden")>
-                        @Html.ActionLink("Chercher une Navette ", "Index", "Clients", null, new { @class = "nav-link" })
-                    </li>
-                    <li class="nav-item" @(Session["user"] != null ? "" : "hidden")>
-                        @Html.ActionLink("Liste des Navette ", "ListPath", "Clients", null, new { @class = "nav-link" })
-                    </li>
+                    @{ if (Session["user"] != null)
+                        {
+                            if (Session["user"].GetType().Name == "Client")
+                            {
+                                <li class="nav-item" @(Session["user"] != null ? "" : "hidden")>
+                                    @Html.ActionLink("Chercher une Navette ", "Index", "Clients", null, new { @class = "nav-link" })
+                                </li>
+                                <li class="nav-item" @(Session["user"] != null ? "" : "hidden")>
+                                    @Html.ActionLink("Liste des Navette ", "ListPath", "Clients", null, new { @class = "nav-link" })
+                                </li>
+                            }
+                            else if (Session["user"].GetType().Name == "TransportCompany")
+                            {
+                                <li class="nav-item" @(Session["user"] != null ? "" : "hidden")>
+                                    @Html.ActionLink("Ajouter Navette ", "AddPath", "TransportCompany", null, new { @class = "nav-link" })
+                                </li>
+
+                                <li class="nav-item" @(Session["user"] != null ? "" : "hidden")>
+                                    @Html.ActionLink("Liste des Navette ", "ListPath", "TransportCompany", null, new { @class = "nav-link" })
+                                </li>
+                            }
+                        }
+
+                    }
                 </ul>
                 <span class="navbar-text">
                     <ul class="nav navbar-nav mr-auto">
                         <li class="nav-item" @(Session["user"] != null ? "hidden" : "")>
-                            @Html.ActionLink("Login", "Login", "Clients", null, new { @class = "nav-link" })
+                            @Html.ActionLink("Se Connecter", "Login", "Clients", null, new { @class = "nav-link" })
                         </li>
                         <li class="nav-item" @(Session["user"] != null ? "hidden" : "")>
-                            @Html.ActionLink("Sign up", "Signin", "Clients", null, new { @class = "nav-link" })
+                            @Html.ActionLink("S'inscrire", "Signin", "Clients", null, new { @class = "nav-link" })
                         </li>
-                        <li class="nav-item" @(Session["user"] == null ? "hidden" : "")>
-                            @Session["user"]
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" @(Session["user"] == null ? "hidden" : "") href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                @Session["user"]
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                                @Html.ActionLink("Déconnexion", "Logout", "Clients", null, new { @class = "dropdown-item text-danger" })
+                            </div>
                         </li>
                     </ul>
-                </span>
-                <span class="navbar-text" @(Session["user"] == null ? "hidden" : "")>
-                    @Html.ActionLink("log out", "Logout", "Clients", null, new { @class = "nav-link" })
                 </span>
             </div>
         </div>

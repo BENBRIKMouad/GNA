@@ -192,7 +192,6 @@ C:\Users\HP\Desktop\GNA\GNA\bin\System.Web.WebPages.xml
 C:\Users\HP\Desktop\GNA\GNA\bin\System.Web.WebPages.Deployment.xml
 C:\Users\HP\Desktop\GNA\GNA\bin\System.Web.WebPages.Razor.xml
 C:\Users\HP\Desktop\GNA\GNA\bin\Antlr3.Runtime.pdb
-C:\Users\HP\Desktop\GNA\GNA\obj\Debug\GNA.csprojAssemblyReference.cache
 C:\Users\HP\Desktop\GNA\GNA\obj\Debug\GNA.Migrations.add_client.resources
 C:\Users\HP\Desktop\GNA\GNA\obj\Debug\GNA.Migrations.add_client1.resources
 C:\Users\HP\Desktop\GNA\GNA\obj\Debug\GNA.Migrations.nullable_LastSubscription.resources

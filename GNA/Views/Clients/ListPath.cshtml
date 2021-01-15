@@ -2,13 +2,14 @@
 @{
     ViewBag.Title = "ListPath";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 
-<div  className="py-2 bg-primary text-white">
+<div className="py-2 bg-primary text-white">
     <div className="container">
         <div className="row">
             <div className="col-md-6">
-                <div class="display-2 text-center" >
+                <div class="display-2 text-center">
                     Liste des itinéraire disponible
                 </div>
             </div>
@@ -17,7 +18,7 @@
 </div>
 
 <hr />
-<div  className="py-4 mb-4 bg-light">
+<div className="py-4 mb-4 bg-light">
     <div className="container">
         <div className="row">
             <div className="col-md-3">
@@ -26,8 +27,16 @@
         </div>
     </div>
 </div>
+@if (ViewBag.status != null)
+{
 
-
+    <div class="alert alert-@(ViewBag.status == "success" ? "success": "warning") alert-dismissible fade show" role="alert">
+        <strong>@ViewBag.status</strong> You should check in on some of those fields below.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
 <table class="table  table-striped my-5">
     <thead class="table-dark">
         <tr>
@@ -81,7 +90,10 @@
                     @Html.DisplayFor(modelItem => item.Price)
                 </td>
                 <td>
-                    @Html.ActionLink("S'abboner", "Subscribe", new { pathId = item.Id }, new { @class = "btn btn-outline-danger" })
+                    @Html.ActionLink("S'abboner", "Subscribe", new
+                    {
+                        pathId = item.Id
+    }, new { @class = "btn btn-outline-danger" })
                 </td>
             </tr>
         }

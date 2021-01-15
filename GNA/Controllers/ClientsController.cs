@@ -112,9 +112,11 @@ namespace GNA.Controllers
                 subscription.EndTime = DateTime.Now.AddDays(30);
                 db.Subscriptions.Add(subscription);
                 db.SaveChanges();
-                return RedirectToAction("Succes");
+                ViewBag.status = "Succes";
+                return RedirectToAction("ListPath");
             }
-            return RedirectToAction("Fail");
+            ViewBag.status = "Fail";
+            return RedirectToAction("ListPath");
         }
         public ActionResult ListSubscribtion()
         {

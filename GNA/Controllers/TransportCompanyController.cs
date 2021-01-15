@@ -12,7 +12,7 @@ namespace GNA.Controllers
     public class TransportCompanyController : Controller
     {
         private Context db = new Context();
-        
+
         // GET: TransportCompany
 
         public bool check()
@@ -23,19 +23,21 @@ namespace GNA.Controllers
                 return false;
             return true;
         }
+
         public ActionResult Index()
         {
             return View();
         }
+
         public ActionResult Signin()
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Signin(TransportCompany transportCompany)
         {
-            
             if (ModelState.IsValid)
             {
                 bool emailAlredyExist = db.TransportCompanies.Any(c => c.Email == transportCompany.Email);
@@ -50,13 +52,16 @@ namespace GNA.Controllers
             }
             return View(transportCompany);
         }
+
         public ActionResult Login()
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login([Bind(Include = "Email,Password")] TransportCompany transportCompany) {
+        public ActionResult Login([Bind(Include = "Email,Password")] TransportCompany transportCompany)
+        {
             var trouve = db.TransportCompanies.FirstOrDefault(s => s.Email == transportCompany.Email &&
                                                             s.Password == transportCompany.Password);
 
@@ -69,46 +74,44 @@ namespace GNA.Controllers
             Session["user"] = trouve;
             return RedirectToAction("Index", "Home");
         }
-        
 
         public ActionResult AddPath()
         {
-            
-            return check() ? View() : (ActionResult) RedirectToAction("Index", "Home") ;
+            return check() ? View() : (ActionResult)RedirectToAction("Index", "Home");
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddPath([Bind(Include = "FromCity,ToCity,DepartureTime,ArivalTime,Capacity,Price")]Path path)
+        public ActionResult AddPath([Bind(Include = "FromCity,ToCity,DepartureTime,ArivalTime,Capacity,Price")] Path path)
         {
-
             int id = ((TransportCompany)Session["user"]).Id;
             bool exist = db.TransportCompanies.Any(c => c.Id == id);
             if (!check() && !exist)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("ListPath");
             }
             path.CompanyId = id;
             if (ModelState.IsValid)
             {
                 db.Paths.Add(path);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("ListPath");
             }
             return View(path);
-            
         }
-        
+
         public ActionResult ListPath()
         {
-            int id = check()?((TransportCompany)Session["user"]).Id:0;
+            int id = check() ? ((TransportCompany)Session["user"]).Id : 0;
             bool exist = db.TransportCompanies.Any(c => c.Id == id);
             if (!exist)
             {
                 return RedirectToAction("Index", "Home");
             }
-            var paths = db.Paths.Include(p => p.Company).Where(p=>p.CompanyId==id);
+            var paths = db.Paths.Include(p => p.Company).Where(p => p.CompanyId == id);
             return View(paths.ToList());
         }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
