@@ -79,11 +79,10 @@ namespace GNA.Controllers
         {
             if (path.FromCity == null)
             {
-                var route = db.Paths.Include(p => p.Company);
+                var route = db.Paths;
                 return View(route.ToList());
             }
-            var paths = db.Paths.Include(p => p.Company)
-                .Where(p => p.FromCity == path.FromCity && p.ToCity == path.ToCity);
+            var paths = db.Paths.Where(p => p.FromCity == path.FromCity && p.ToCity == path.ToCity);
             if (from != null)
                 paths = paths.Where(p => p.DepartureTime.Hour > from);
             if (to != null)
