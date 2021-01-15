@@ -88,7 +88,7 @@ namespace GNA.Controllers
                 select new PathCurrentCapacity
                 {
                     path = s,
-                    currentCapacity = s.Capacity - db.Subscriptions.Count(p => p.PathId == s.Id)
+                    currentCapacity = s.Capacity - db.Subscriptions.Count(p => p.PathId == s.Id && p.EndTime > DateTime.Now)
                 }
             ).ToList();
             return View(allpath);
