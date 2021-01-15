@@ -77,19 +77,21 @@ namespace GNA.Controllers
 
         public ActionResult ListPath([Bind(Include = "FromCity,ToCity")] Path path, int? from, int? to)
         {
-            if (path.FromCity == null)
-            {
-                var route = db.Paths.Include(p => p.Company);
-                return View(route.ToList());
-            }
-            var paths = db.Paths.Include(p => p.Company)
-                .Where(p => p.FromCity == path.FromCity && p.ToCity == path.ToCity);
+            
+            var paths = path.FromCity == null ? db.Paths : db.Paths.Where(p => p.FromCity == path.FromCity && p.ToCity == path.ToCity);
             if (from != null)
                 paths = paths.Where(p => p.DepartureTime.Hour > from);
             if (to != null)
                 paths = paths.Where(p => p.DepartureTime.Hour < to);
-
-            return View(paths.ToList());
+            var allpath = (
+                from s in paths
+                select new PathCurrentCapacity
+                {
+                    path = s,
+                    currentCapacity = s.Capacity - db.Subscriptions.Count(p => p.PathId == s.Id && p.EndTime > DateTime.Now)
+                }
+            ).ToList();
+            return View(allpath);
         }
 
         public ActionResult Subscribe(int pathId)

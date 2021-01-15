@@ -1,15 +1,14 @@
-﻿@model IEnumerable<GNA.Models.Path>
+﻿@model List<GNA.Models.PathCurrentCapacity>
 @{
     ViewBag.Title = "ListPath";
     Layout = "~/Views/Shared/_Layout.cshtml";
-
 }
 
-<div className="py-2 bg-primary text-white">
+<div  className="py-2 bg-primary text-white">
     <div className="container">
         <div className="row">
             <div className="col-md-6">
-                <div class="display-2 text-center">
+                <div class="display-2 text-center" >
                     Liste des itinéraire disponible
                 </div>
             </div>
@@ -18,7 +17,7 @@
 </div>
 
 <hr />
-<div className="py-4 mb-4 bg-light">
+<div  className="py-4 mb-4 bg-light">
     <div className="container">
         <div className="row">
             <div className="col-md-3">
@@ -27,16 +26,8 @@
         </div>
     </div>
 </div>
-@if (ViewBag.status != null)
-{
 
-    <div class="alert alert-@(ViewBag.status == "success" ? "success": "warning") alert-dismissible fade show" role="alert">
-        <strong>@ViewBag.status</strong> You should check in on some of those fields below.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-}
+
 <table class="table  table-striped my-5">
     <thead class="table-dark">
         <tr>
@@ -60,6 +51,9 @@
                 Capacité
             </th>
             <th>
+                Capacité restante
+            </th>
+            <th>
                 Prix
             </th>
             <th></th>
@@ -68,34 +62,34 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FromCity)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ToCity)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DepartureTime.Hour) :
-                    @Html.DisplayFor(modelItem => item.DepartureTime.Minute)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ArivalTime.Hour):
-                    @Html.DisplayFor(modelItem => item.ArivalTime.Minute)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Capacity)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
-                <td>
-                    @Html.ActionLink("S'abboner", "Subscribe", new
-                    {
-                        pathId = item.Id
-    }, new { @class = "btn btn-outline-danger" })
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.path.FromCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.path.ToCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.path.DepartureTime.Hour) :
+                @Html.DisplayFor(modelItem => item.path.DepartureTime.Minute)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.path.ArivalTime.Hour):
+                @Html.DisplayFor(modelItem => item.path.ArivalTime.Minute)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.path.Capacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.currentCapacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.path.Price)
+            </td>
+            <td>
+                @Html.ActionLink("S'abboner", "Subscribe", new { pathId = item.path.Id }, new { @class = "btn btn-outline-danger" })
+            </td>
+        </tr>
         }
     </tbody>
 </table>
