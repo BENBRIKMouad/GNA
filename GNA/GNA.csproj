@@ -173,9 +173,18 @@
     <Compile Include="Migrations\202101141607131_sub_add_FK_to_path.Designer.cs">
       <DependentUpon>202101141607131_sub_add_FK_to_path.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101151008305_add_path_currentcappacity.cs" />
+    <Compile Include="Migrations\202101151008305_add_path_currentcappacity.Designer.cs">
+      <DependentUpon>202101151008305_add_path_currentcappacity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101151018158_remove_path_currentcappacity.cs" />
+    <Compile Include="Migrations\202101151018158_remove_path_currentcappacity.Designer.cs">
+      <DependentUpon>202101151018158_remove_path_currentcappacity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Path.cs" />
+    <Compile Include="Models\PathCurrentCapacity.cs" />
     <Compile Include="Models\Subscription.cs" />
     <Compile Include="Models\TransportCompany.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -388,6 +397,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101141607131_sub_add_FK_to_path.resx">
       <DependentUpon>202101141607131_sub_add_FK_to_path.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101151008305_add_path_currentcappacity.resx">
+      <DependentUpon>202101151008305_add_path_currentcappacity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101151018158_remove_path_currentcappacity.resx">
+      <DependentUpon>202101151018158_remove_path_currentcappacity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

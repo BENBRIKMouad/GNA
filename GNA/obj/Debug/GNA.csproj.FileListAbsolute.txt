@@ -208,3 +208,5 @@ C:\Users\HP\Desktop\GNA\GNA\obj\Debug\GNA.csproj.CoreCompileInputs.cache
 C:\Users\HP\Desktop\GNA\GNA\obj\Debug\GNA.csproj.CopyComplete
 C:\Users\HP\Desktop\GNA\GNA\obj\Debug\GNA.dll
 C:\Users\HP\Desktop\GNA\GNA\obj\Debug\GNA.pdb
+C:\Users\benbrik\Documents\GitHub\GNA\GNA\obj\Debug\GNA.Migrations.add_path_currentcappacity.resources
+C:\Users\benbrik\Documents\GitHub\GNA\GNA\obj\Debug\GNA.Migrations.remove_path_currentcappacity.resources
